@@ -1,0 +1,24 @@
+---
+name: pre-commit dependabot autoupdate
+
+on:
+  schedule:
+    - cron: '0 12 * * 4'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+  actions: write
+
+jobs:
+  autoupdate-pre-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4.2.2
+      - name: install asdf & tools
+        uses: asdf-vm/actions/install@v4.0.0
+      - name: Autoupdate Pre-commit Hooks
+        uses: "voxel51/aloha-github-workflows/.github/actions/pre-commit-dependabot-autoupdate@main"
+        with:
+          github-token: "${{ secrets.ORG_DEPENDABOT_UPDATE_PAT }}"

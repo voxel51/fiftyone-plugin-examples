@@ -1,0 +1,40 @@
+---
+name: asdf dependabot update
+
+on:
+  schedule:
+    # Runs at 8 AM ET / 12 PM UTC (non-DST)
+    - cron: '0 12 * * 4'
+  workflow_dispatch:
+
+jobs:
+  setup-asdf-matrix:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix-combinations: ${{ steps.setup-matrix-combinations.outputs.matrix-combinations }}
+    steps:
+      - uses: actions/checkout@v4.2.2
+      - name: install asdf & tools
+        uses: asdf-vm/actions/setup@v4.0.0
+      - name: install asdf & tools
+        uses: asdf-vm/actions/plugins-add@v4.0.0
+      - name: Update Tools
+        id: setup-matrix-combinations
+        uses: "voxel51/aloha-github-workflows/.github/actions/asdf-dependabot-update/generate-matrix@main"
+        with:
+          patch-only: "python,nodejs"
+
+  update-asdf:
+    runs-on: ubuntu-latest
+    needs: setup-asdf-matrix
+    strategy:
+      matrix: ${{ fromJson(needs.setup-asdf-matrix.outputs.matrix-combinations) }}
+    steps:
+      - uses: actions/checkout@v4.2.2
+      - name: Update Tools
+        uses: "voxel51/aloha-github-workflows/.github/actions/asdf-dependabot-update/update@main"
+        with:
+          tool: ${{ matrix.tool }}
+          tool-versions-file: .tool-versions
+          version: ${{ matrix.version }}
+          github-token: "${{ secrets.ORG_DEPENDABOT_UPDATE_PAT }}"
