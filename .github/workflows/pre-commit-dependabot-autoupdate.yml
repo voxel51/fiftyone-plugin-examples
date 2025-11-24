@@ -17,7 +17,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5.0.0
       - name: install asdf & tools
-        uses: asdf-vm/actions/install@v4.0.0
+        uses: asdf-vm/actions/install@v4.0.1
       - name: Autoupdate Pre-commit Hooks
         uses: "voxel51/aloha-github-workflows/.github/actions/pre-commit-dependabot-autoupdate@main"
         with:
