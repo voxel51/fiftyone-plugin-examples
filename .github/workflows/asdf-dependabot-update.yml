@@ -15,9 +15,9 @@ jobs:
     steps:
       - uses: actions/checkout@v6.0.0
       - name: install asdf & tools
-        uses: asdf-vm/actions/setup@v4.0.0
+        uses: asdf-vm/actions/setup@v4.0.1
       - name: install asdf & tools
-        uses: asdf-vm/actions/plugins-add@v4.0.0
+        uses: asdf-vm/actions/plugins-add@v4.0.1
       - name: Update Tools
         id: setup-matrix-combinations
         uses: "voxel51/aloha-github-workflows/.github/actions/asdf-dependabot-update/generate-matrix@main"
