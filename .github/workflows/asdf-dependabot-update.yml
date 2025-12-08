@@ -13,7 +13,7 @@ jobs:
     outputs:
       matrix-combinations: ${{ steps.setup-matrix-combinations.outputs.matrix-combinations }}
     steps:
-      - uses: actions/checkout@v6.0.0
+      - uses: actions/checkout@v6.0.1
       - name: install asdf & tools
         uses: asdf-vm/actions/setup@v4.0.1
       - name: install asdf & tools
@@ -30,7 +30,7 @@ jobs:
     strategy:
       matrix: ${{ fromJson(needs.setup-asdf-matrix.outputs.matrix-combinations) }}
     steps:
-      - uses: actions/checkout@v6.0.0
+      - uses: actions/checkout@v6.0.1
       - name: Update Tools
         uses: "voxel51/aloha-github-workflows/.github/actions/asdf-dependabot-update/update@main"
         with:
