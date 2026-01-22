@@ -16,8 +16,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6.0.0
-      - name: install asdf & tools
-        uses: asdf-vm/actions/install@v4.0.1
+      - name: Install asdf & tools
+        uses: "voxel51/aloha-github-workflows/.github/actions/asdf-install-and-cache@main"
       - name: Autoupdate Pre-commit Hooks
         uses: "voxel51/aloha-github-workflows/.github/actions/pre-commit-dependabot-autoupdate@main"
         with:
