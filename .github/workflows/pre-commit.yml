@@ -17,7 +17,7 @@ jobs:
         id: generate-python-file
         with:
           tool-name: python
-      - uses: actions/setup-python@v6.0.0
+      - uses: actions/setup-python@v6.2.0
         with:
           python-version-file: ${{ steps.generate-python-file.outputs.version-file }}
       - name: Run pre-commit
