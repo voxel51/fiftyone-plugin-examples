@@ -15,7 +15,7 @@ jobs:
   autoupdate-pre-commit:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6.0.0
+      - uses: actions/checkout@v6.0.2
       - name: install asdf & tools
         uses: asdf-vm/actions/install@v4.0.1
       - name: Autoupdate Pre-commit Hooks
