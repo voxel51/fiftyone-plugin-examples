@@ -1,6 +1,6 @@
-> WIP: this repo is a work in progress!
+# FiftyOne Plugin Examples 🔌🚀
 
-## FiftyOne Plugin Examples 🔌🚀
+> WIP: this repo is a work in progress!
 
 FiftyOne provides a powerful
 [plugin framework](https://docs.voxel51.com/plugins/index.html) that allows for
@@ -22,22 +22,28 @@ for developers looking to extend FiftyOne's functionality.
 
 For example, here's a taste of what you can build with the plugin framework!
 
-https://github.com/voxel51/fiftyone-plugins/assets/25985824/128d9fbd-9835-49e8-bbb9-93ea5093871f
+<https://github.com/voxel51/fiftyone-plugins/assets/25985824/128d9fbd-9835-49e8-bbb9-93ea5093871f>
 
 ## Table of Contents
 
 This repository contains a curated collection of
-[FiftyOne Plugin Examples](https://docs.voxel51.com/plugins/index.html), organized into
-the following categories:
+[FiftyOne Plugin Examples](https://docs.voxel51.com/plugins/index.html),
+organized into the following categories:
 
--   [Core Examples](#core-examples): fundamental examples that demonstrate essential plugin concepts and patterns
--   [Operator Examples](#operator-examples): examples showing how to build custom operators and operations
--   [Panel Examples](#panel-examples): examples demonstrating how to create custom panels and visualizations
--   [Integration Examples](#integration-examples): examples showing how to integrate with external tools and APIs
--   [Advanced Examples](#advanced-examples): complex examples showcasing advanced plugin capabilities
+- [Core Examples](#core-examples): fundamental examples that demonstrate essential
+  plugin concepts and patterns
+- [Operator Examples](#operator-examples): examples showing how to build custom
+  operators and operations
+- [Panel Examples](#panel-examples): examples demonstrating how to create custom
+  panels and visualizations
+- [Integration Examples](#integration-examples): examples showing how to integrate
+  with external tools and APIs
+- [Advanced Examples](#advanced-examples): complex examples showcasing advanced
+  plugin capabilities
 
 ## Core Examples
 
+<!-- markdownlint-disable no-inline-html line-length -->
 <table>
     <tr>
         <th>Name</th>
@@ -60,9 +66,11 @@ the following categories:
         <td>📊 Create your first custom panel to display data and interact with your FiftyOne datasets</td>
     </tr>
 </table>
+<!-- markdownlint-enable no-inline-html line-length -->
 
 ## Operator Examples
 
+<!-- markdownlint-disable no-inline-html line-length -->
 <table>
     <tr>
         <th>Name</th>
@@ -85,9 +93,11 @@ the following categories:
         <td>📦 Examples of operators that process multiple samples efficiently</td>
     </tr>
 </table>
+<!-- markdownlint-enable no-inline-html line-length -->
 
 ## Panel Examples
 
+<!-- markdownlint-disable no-inline-html line-length -->
 <table>
     <tr>
         <th>Name</th>
@@ -110,9 +120,11 @@ the following categories:
         <td>🔍 Examples of panels designed for exploring and analyzing dataset characteristics</td>
     </tr>
 </table>
+<!-- markdownlint-enable no-inline-html line-length -->
 
 ## Integration Examples
 
+<!-- markdownlint-disable no-inline-html line-length -->
 <table>
     <tr>
         <th>Name</th>
@@ -135,9 +147,11 @@ the following categories:
         <td>✏️ Learn how to integrate with annotation tools and workflows</td>
     </tr>
 </table>
+<!-- markdownlint-enable no-inline-html line-length -->
 
 ## Advanced Examples
 
+<!-- markdownlint-disable no-inline-html line-length -->
 <table>
     <tr>
         <th>Name</th>
@@ -160,6 +174,7 @@ the following categories:
         <td>🚀 Advanced examples demonstrating techniques for optimizing plugin performance</td>
     </tr>
 </table>
+<!-- markdownlint-enable no-inline-html line-length -->
 
 ## Using Examples
 
@@ -182,6 +197,7 @@ cd fiftyone-plugin-examples
 ```
 
 Each example directory contains:
+
 - A `README.md` with detailed instructions
 - Source code demonstrating the concept
 - Any necessary configuration files
@@ -227,7 +243,8 @@ instructions.
 
 If you want join a fast-growing community of engineers, researchers, and
 practitioners who love computer vision, join the
-[FiftyOne Discord community](https://community.voxel51.com/?_gl=1*1ph47fb*_gcl_au*NjI4MTMwMzIxLjE3MzY0NTM0MDc.) 🚀🚀🚀
+[FiftyOne Discord community](https://community.voxel51.com/?_gl=1*1ph47fb*_gcl_au*NjI4MTMwMzIxLjE3MzY0NTM0MDc.)
+🚀🚀🚀
 
 **💡 Pro tip:** the `#plugins` channel is a great place to discuss plugin development!
 
