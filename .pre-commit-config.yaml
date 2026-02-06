@@ -18,7 +18,8 @@ repos:
         exclude: |
           (?x)^(
             package-lock\.json|
-            plugins/skeleton/dist/index.umd.js.map
+            plugins/skeleton/dist/index.umd.js.map|
+            plugins/skeleton/package\.json
           )$
         args:
           - --autofix
