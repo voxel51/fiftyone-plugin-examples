@@ -19,7 +19,8 @@ repos:
           (?x)^(
             package-lock\.json|
             plugins/skeleton/dist/index.umd.js.map|
-            plugins/skeleton/package\.json
+            plugins/skeleton/package\.json |
+            plugins/skeleton/tsconfig\.json
           )$
         args:
           - --autofix
