@@ -8,9 +8,20 @@ repos:
       - id: check-shebang-scripts-are-executable
       - id: check-yaml
       - id: end-of-file-fixer
+        exclude: |
+          (?x)^(
+            plugins/skeleton/dist/index.umd.js.map
+          )$
+
       - id: mixed-line-ending
       - id: pretty-format-json
-        exclude: '^package-lock\.json$'
+        exclude: |
+          (?x)^(
+            package-lock\.json|
+            plugins/skeleton/dist/index.umd.js.map|
+            plugins/skeleton/package\.json |
+            plugins/skeleton/tsconfig\.json
+          )$
         args:
           - --autofix
       - id: trailing-whitespace
@@ -22,6 +33,11 @@ repos:
     rev: v2.4.1
     hooks:
       - id: codespell
+        exclude: |
+          (?x)^(
+            plugins/skeleton/dist/index.umd.js.map|
+            plugins/skeleton/dist/index.umd.js
+          )$
   - repo: https://github.com/igorshubovych/markdownlint-cli
     rev: v0.44.0
     hooks:

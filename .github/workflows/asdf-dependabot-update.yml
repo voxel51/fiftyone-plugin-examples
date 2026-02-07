@@ -14,25 +14,40 @@ jobs:
       matrix-combinations: ${{ steps.setup-matrix-combinations.outputs.matrix-combinations }}
     steps:
       - uses: actions/checkout@v6.0.0
-      - name: install asdf & tools
+      - name: Checkout voxel51/aloha-github-workflows
+        uses: actions/checkout@v6.0.1
+        with:
+          repository: voxel51/aloha-github-workflows
+          ref: main
+          token: ${{ secrets.ORG_RO_ALOHA_GITHUB_WORKFLOWS_FG_PAT }}
+          path: ./.github/actions/aloha-github-workflows
+      - name: Install asdf CLI
         uses: asdf-vm/actions/setup@v4.0.1
-      - name: install asdf & tools
+      - name: Install asdf plugins
         uses: asdf-vm/actions/plugins-add@v4.0.1
       - name: Update Tools
         id: setup-matrix-combinations
-        uses: "voxel51/aloha-github-workflows/.github/actions/asdf-dependabot-update/generate-matrix@main"
+        uses: ./.github/actions/aloha-github-workflows/.github/actions/asdf-dependabot-update/generate-matrix
         with:
           patch-only: "python,nodejs"
 
   update-asdf:
+    if: ${{ toJson(fromJson(needs.setup-asdf-matrix.outputs.matrix-combinations).include) != '[]' }}
     runs-on: ubuntu-latest
     needs: setup-asdf-matrix
     strategy:
       matrix: ${{ fromJson(needs.setup-asdf-matrix.outputs.matrix-combinations) }}
     steps:
       - uses: actions/checkout@v6.0.0
-      - name: Update Tools
-        uses: "voxel51/aloha-github-workflows/.github/actions/asdf-dependabot-update/update@main"
+      - name: Checkout voxel51/aloha-github-workflows
+        uses: actions/checkout@v6.0.1
+        with:
+          repository: voxel51/aloha-github-workflows
+          ref: main
+          token: ${{ secrets.ORG_RO_ALOHA_GITHUB_WORKFLOWS_FG_PAT }}
+          path: ./.github/actions/aloha-github-workflows
+      - name: Update asdf tools
+        uses: ./.github/actions/aloha-github-workflows/.github/actions/asdf-dependabot-update/update
         with:
           tool: ${{ matrix.tool }}
           tool-versions-file: .tool-versions

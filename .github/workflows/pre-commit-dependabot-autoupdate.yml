@@ -16,9 +16,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6.0.0
-      - name: install asdf & tools
-        uses: asdf-vm/actions/install@v4.0.1
+      - name: Checkout voxel51/aloha-github-workflows
+        uses: actions/checkout@v6.0.1
+        with:
+          repository: voxel51/aloha-github-workflows
+          ref: main
+          token: ${{ secrets.ORG_RO_ALOHA_GITHUB_WORKFLOWS_FG_PAT }}
+          path: ./.github/actions/aloha-github-workflows
+      - name: Install asdf & tools
+        uses: ./.github/actions/aloha-github-workflows/.github/actions/asdf-install-and-cache
       - name: Autoupdate Pre-commit Hooks
-        uses: "voxel51/aloha-github-workflows/.github/actions/pre-commit-dependabot-autoupdate@main"
+        uses: ./.github/actions/aloha-github-workflows/.github/actions/pre-commit-dependabot-autoupdate
         with:
           github-token: "${{ secrets.ORG_DEPENDABOT_UPDATE_PAT }}"
