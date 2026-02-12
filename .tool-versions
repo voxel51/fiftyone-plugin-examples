@@ -1,4 +1,4 @@
 pre-commit 4.2.0
-python 3.10.18
+python 3.10.19
 shellcheck 0.10.0
 shfmt 3.12.0
