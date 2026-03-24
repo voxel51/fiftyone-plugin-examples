@@ -1,5 +1,6 @@
 # FiftyOne Plugin Examples 🔌🚀
 
+<!-- markdownlint-disable no-inline-html -->
 <div align="center">
 
 [![Discord](https://img.shields.io/badge/Discord-7289DA?logo=discord&logoColor=white)](https://discord.gg/fiftyone-community)
@@ -11,6 +12,7 @@
 [![Medium](https://img.shields.io/badge/Medium-12100E?logo=medium&logoColor=white)](https://medium.com/voxel51)
 
 </div>
+<!-- markdownlint-enable no-inline-html -->
 
 > WIP: this repo is a work in progress!
 
