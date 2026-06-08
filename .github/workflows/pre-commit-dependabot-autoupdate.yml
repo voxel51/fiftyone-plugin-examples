@@ -15,9 +15,9 @@ jobs:
   autoupdate-pre-commit:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6.0.0
+      - uses: actions/checkout@v6.0.3
       - name: Checkout voxel51/aloha-github-workflows
-        uses: actions/checkout@v6.0.1
+        uses: actions/checkout@v6.0.3
         with:
           repository: voxel51/aloha-github-workflows
           ref: main

@@ -13,9 +13,9 @@ jobs:
     outputs:
       matrix-combinations: ${{ steps.setup-matrix-combinations.outputs.matrix-combinations }}
     steps:
-      - uses: actions/checkout@v6.0.0
+      - uses: actions/checkout@v6.0.3
       - name: Checkout voxel51/aloha-github-workflows
-        uses: actions/checkout@v6.0.1
+        uses: actions/checkout@v6.0.3
         with:
           repository: voxel51/aloha-github-workflows
           ref: main
@@ -38,9 +38,9 @@ jobs:
     strategy:
       matrix: ${{ fromJson(needs.setup-asdf-matrix.outputs.matrix-combinations) }}
     steps:
-      - uses: actions/checkout@v6.0.0
+      - uses: actions/checkout@v6.0.3
       - name: Checkout voxel51/aloha-github-workflows
-        uses: actions/checkout@v6.0.1
+        uses: actions/checkout@v6.0.3
         with:
           repository: voxel51/aloha-github-workflows
           ref: main
