@@ -3,12 +3,33 @@ name: asdf dependabot update
 
 on:
   schedule:
-    # Runs at 8 AM ET / 12 PM UTC (non-DST)
-    - cron: '0 12 * * 4'
+    # Tuesdays at 8 AM UTC (4 AM EDT, 3 AM EST), an hour before Dependabot.
+    # The check-week job skips every other week to match Dependabot's tue%2.
+    - cron: '0 8 * * 2'
   workflow_dispatch:
 
 jobs:
+  check-week:
+    runs-on: ubuntu-latest
+    outputs:
+      run: ${{ steps.check-week.outputs.run }}
+    steps:
+      - name: Check for a Dependabot week
+        id: check-week
+        run: |
+          # Counts weeks from Monday 2018-12-31 (epoch 1546214400), as
+          # fugit does for Dependabot's tue%2, so both run on the same Tuesdays.
+          week=$(( ($(date -u +%s) - 1546214400) / 604800 ))
+          if [[ "$GITHUB_EVENT_NAME" != "schedule" ]] || (( week % 2 == 0 )); then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "Week ${week} is odd. Skipping."
+            echo "run=false" >> "$GITHUB_OUTPUT"
+          fi
+
   setup-asdf-matrix:
+    needs: check-week
+    if: needs.check-week.outputs.run == 'true'
     runs-on: ubuntu-latest
     outputs:
       matrix-combinations: ${{ steps.setup-matrix-combinations.outputs.matrix-combinations }}
