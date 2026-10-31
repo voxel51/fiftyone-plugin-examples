@@ -4,4 +4,27 @@ updates:
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "weekly"
+      # Every other Tuesday at 9 AM UTC (5 AM EDT, 4 AM EST).
+      # tue%2 is fugit's modulo extension, which Dependabot supports.
+      # The asdf update workflow runs on the same Tuesdays.
+      interval: "cron"
+      cronjob: "0 9 * * tue%2"
+    cooldown:
+      default-days: 7
+
+  - package-ecosystem: "pre-commit"
+    directory: "/"
+    schedule:
+      # Every other Tuesday at 9 AM UTC (5 AM EDT, 4 AM EST).
+      # tue%2 is fugit's modulo extension, which Dependabot supports.
+      # The asdf update workflow runs on the same Tuesdays.
+      interval: "cron"
+      cronjob: "0 9 * * tue%2"
+    cooldown:
+      default-days: 7
+    commit-message:
+      prefix: "ci(pre-commit)"
+    groups:
+      pre-commit:
+        patterns:
+          - "*"
